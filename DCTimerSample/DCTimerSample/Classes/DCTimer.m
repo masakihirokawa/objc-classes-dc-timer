@@ -9,7 +9,18 @@
 
 @implementation DCTimer
 
-@synthesize timer = _timer;
+//@synthesize timer = _timer;
+static NSTimer *dcTimer;
+
++ (void)setDcTimer:(NSTimer *)arg
+{
+	dcTimer = arg;
+}
+
++ (int)getDcTimer
+{
+	return (dcTimer);
+}
 
 /*
 //初期化
@@ -26,7 +37,7 @@
 //タイマー定義
 + (void)setTimer:(CGFloat)timeInterval delegate:(id)delegate selector:(SEL)selector userInfo:(NSDictionary *)userInfo
 {
-    DCTimer *timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
+    [DCTimer timer] = [NSTimer scheduledTimerWithTimeInterval:timeInterval
                                               target:delegate
                                             selector:selector
                                             userInfo:userInfo

@@ -9,7 +9,8 @@
 
 @interface DCTimer : NSTimer
 
-@property (nonatomic, strong) NSTimer *timer;
+//@property (nonatomic, strong) NSTimer *timer;
++ (NSTimer *)timer;
 
 + (void)setTimer:(CGFloat)timeInterval delegate:(id)delegate selector:(SEL)selector userInfo:(NSDictionary *)userInfo;
 + (void)clearTimer;
