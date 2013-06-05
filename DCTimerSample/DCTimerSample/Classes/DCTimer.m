@@ -9,14 +9,27 @@
 
 @implementation DCTimer
 
-+ (void)setDelayTimer:(CGFloat)timeInterval
-             selector:(SEL)selector
++ (void)setTimer:(CGFloat)timeInterval delegate:(id)delegate selector:(SEL)selector userInfo:(NSDictionary *)userInfo
 {
-    NSTimer *delayTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
-                                                   target:self
-                                                 selector:@selector(selector:)
-                                                 userInfo:nil
-                                                  repeats:NO];
+    [DCTimer timer] = [NSTimer scheduledTimerWithTimeInterval:timeInterval
+                                     target:delegate
+                                   selector:selector
+                                   userInfo:userInfo
+                                    repeats:YES];
+}
+
++ (void)deleteTimer
+{
+    [[DCTimer timer] invalidate];
+}
+
++ (void)setDelayTimer:(CGFloat)timeInterval delegate:(id)delegate selector:(SEL)selector userInfo:(NSDictionary *)userInfo
+{
+    [NSTimer scheduledTimerWithTimeInterval:timeInterval
+                                     target:delegate
+                                   selector:selector
+                                   userInfo:userInfo
+                                    repeats:NO];
 }
 
 @end

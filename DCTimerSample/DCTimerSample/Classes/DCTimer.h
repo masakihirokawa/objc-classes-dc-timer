@@ -9,6 +9,9 @@
 
 @interface DCTimer : NSTimer
 
-+ (void)setDelayTimer:(CGFloat)timeInterval selector:(SEL)selector;
++ (NSTimer *)timer;
+
++ (void)setTimer:(CGFloat)timeInterval delegate:(id)delegate selector:(SEL)selector userInfo:(NSDictionary *)userInfo;
++ (void)setDelayTimer:(CGFloat)timeInterval delegate:(id)delegate selector:(SEL)selector userInfo:(NSDictionary *)userInfo;
 
 @end
