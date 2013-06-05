@@ -26,10 +26,11 @@
     
     //タイマー呼び出し
     NSDictionary *timerUserInfo = [NSDictionary dictionaryWithObject:@"called telayTimer method" forKey:@"message"];
-    [DCTimer setTimer:1.0f
-             delegate:self
-             selector:@selector(timerEvent:)
-             userInfo:timerUserInfo];
+    DCTimer *timer = [[DCTimer alloc] init];
+    [timer setTimer:1.0f
+           delegate:self
+           selector:@selector(timerEvent:)
+           userInfo:timerUserInfo];
     
     //遅延実行タイマー呼び出し
     NSDictionary *delayTimerUserInfo = [NSDictionary dictionaryWithObject:@"called setDelayTimer method" forKey:@"message"];
@@ -55,4 +56,9 @@
     self.delayTimerLabel.text = message;
 }
 
+- (IBAction)stopTimer:(id)sender
+{
+    NSTimer *timer = [DCTimer timer];
+    [timer invalidate];
+}
 @end

@@ -14,4 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *delayTimerLabel;
 
+- (IBAction)stopTimer:(id)sender;
+
 @end

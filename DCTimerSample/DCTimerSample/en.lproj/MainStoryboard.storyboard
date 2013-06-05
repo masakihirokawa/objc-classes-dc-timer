@@ -22,13 +22,28 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACa-Bm-CLe">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Stop Timer">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopTimer:" destination="2" eventType="touchUpInside" id="8cV-Uq-JC5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3Zh-rz-bDk" firstAttribute="centerX" secondItem="mYu-Dz-7CA" secondAttribute="centerX" type="default" id="51X-Z8-w6l"/>
-                            <constraint firstItem="mYu-Dz-7CA" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="73t-wE-Db1"/>
+                            <constraint firstItem="3Zh-rz-bDk" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="AKi-TL-6qr"/>
+                            <constraint firstItem="3Zh-rz-bDk" firstAttribute="top" secondItem="3" secondAttribute="top" constant="88" id="JbP-fe-a83"/>
+                            <constraint firstItem="ACa-Bm-CLe" firstAttribute="top" secondItem="3" secondAttribute="top" constant="141" id="KM6-IQ-8Rz"/>
+                            <constraint firstItem="ACa-Bm-CLe" firstAttribute="centerX" secondItem="mYu-Dz-7CA" secondAttribute="centerX" type="default" id="eTn-SK-bRk"/>
+                            <constraint firstItem="ACa-Bm-CLe" firstAttribute="centerX" secondItem="3Zh-rz-bDk" secondAttribute="centerX" type="default" id="g2F-rr-ZjU"/>
                             <constraint firstAttribute="bottom" secondItem="mYu-Dz-7CA" secondAttribute="bottom" constant="199" id="lTK-O9-Tx0"/>
-                            <constraint firstItem="3Zh-rz-bDk" firstAttribute="top" secondItem="3" secondAttribute="top" constant="199" id="oDF-en-Shz"/>
                         </constraints>
                     </view>
                     <connections>
@@ -47,6 +62,7 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="action" name="stopTimer:"/>
                 <relationship kind="outlet" name="delayTimerLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timerLabel" candidateClass="UILabel"/>
             </relationships>

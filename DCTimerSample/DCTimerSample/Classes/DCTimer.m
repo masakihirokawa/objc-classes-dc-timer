@@ -9,20 +9,39 @@
 
 @implementation DCTimer
 
+@synthesize timer = _timer;
+
+/*
+//初期化
+- (id)init
+{
+    self = [super init];
+    if (self != nil) {
+        [self clearTimer];
+    }
+    return self;
+}
+*/
+
+//タイマー定義
 + (void)setTimer:(CGFloat)timeInterval delegate:(id)delegate selector:(SEL)selector userInfo:(NSDictionary *)userInfo
 {
-    [DCTimer timer] = [NSTimer scheduledTimerWithTimeInterval:timeInterval
-                                     target:delegate
-                                   selector:selector
-                                   userInfo:userInfo
-                                    repeats:YES];
+    DCTimer *timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
+                                              target:delegate
+                                            selector:selector
+                                            userInfo:userInfo
+                                             repeats:YES];
 }
 
-+ (void)deleteTimer
+//タイマー削除
++ (void)clearTimer
 {
-    [[DCTimer timer] invalidate];
+    if ([DCTimer timer] != nil) {
+        [[DCTimer timer] invalidate];
+    }
 }
 
+//遅延実行タイマー定義
 + (void)setDelayTimer:(CGFloat)timeInterval delegate:(id)delegate selector:(SEL)selector userInfo:(NSDictionary *)userInfo
 {
     [NSTimer scheduledTimerWithTimeInterval:timeInterval
