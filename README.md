@@ -1,4 +1,4 @@
-objc-classes-dc-timer
+DCTimer
 =====================
 
-タイマーを実行する「DCTimer」クラスです
+2種類のタイマーイベントをクラスメソッドで呼び出す「DCTimer」クラスです。userInfo経由でパラメータを渡す事も可能です。
